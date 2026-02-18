@@ -1,6 +1,6 @@
 LTspice 26.0.1 for Windows
 Circuit: C:\users\hotfudge\Favorites\ece448\sim2\centertap.net
-Start Time: Mon Feb 16 15:22:54 2026
+Start Time: Wed Feb 18 00:50:47 2026
 solver = Normal
 Maximum thread count: 4
 tnom = 27
@@ -8,7 +8,7 @@ temp = 27
 method = trap
 .OP point found by inspection.
 .OP point found by inspection.
-Total elapsed time: 0.323 seconds.
+Total elapsed time: 0.076 seconds.
 
 Files loaded:
 C:\users\hotfudge\Favorites\ece448\sim2\centertap.net

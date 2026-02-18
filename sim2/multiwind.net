@@ -7,7 +7,7 @@ L3 0 load2 1 Rser=1m
 R1 load1 0 50
 R2 load2 0 50
 K L1 L2 L3 1
-* .tran 0 1 0 0.001
-.ac dec 10 1 100
+.tran 0 1 0 0.001
+* .ac dec 10 1 100
 .backanno
 .end
