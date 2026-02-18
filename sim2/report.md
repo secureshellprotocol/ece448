@@ -23,6 +23,8 @@ James Ryan, ECE448 Power Electronics, Spring 2026
 
 ![Part b calculations](media/q1/b.jpeg){width=70%}
 
+*Note:* We are operaing on peak magnitudes here, not RMS.
+
 ## c
 
 *While maintaining the turn ratio between the primary and secondary coils*,
@@ -51,16 +53,17 @@ between current and voltage between the primary and secondary coils, we have to
 obey $i_s = \frac{v_p}{v_s} i_p = \frac{1}{2} i_p$, so our $i_s$ will decrease
 to maintain the enforced ratio.
 
-*Note:* I'll revert the inductors to $L_{p} = 1$H and $L_{s} = 4$H for the
-remainder of the problem, since it provides the calculated current balance we
-expect to see (where $I_p \approx 6.8$A and $I_s \approx 3.4$A). I spent more
-time than I should have trying to make the `1e-3` value work.
+![Stepping the coils up to 10:40 gave nice results for our
+current](media/q1/1c_windings.png)
+
+When the inductors were raised to $10$H and $40$H, we can see that we now are
+observing the expected current magnitudes which were calculated in part b.
 
 ## d
 
 ![LR motor replaces the secondary load.](media/q1/voltage_leading.png)
 
-Voltage leads current. So, power factor is lagging.
+Voltage leads current. So, power factor is lagging (inductive).
 
 ## e
 
@@ -70,15 +73,14 @@ Voltage leads current. So, power factor is lagging.
 
 ![Impedance on primary and secondary sides. Green: Primary, Teal: Secondary](media/q1/f_p.png)
 
-At $f=60$ Hz, we can see that the primary side sees approximately $78\Omega$.
-This is less than what we calculated; we expected to see approximately
-$98\Omega$.
+At $f=60$ Hz, we can see that the primary side sees approximately $95\Omega$,
+which is close to our calculated magnitude (on cursor 1).
 
 As a sanity check...
 
 I see the correct load impedance on the secondary side. Treating `LS` as a
 source, I expect to see `mag(100+j120pi)` $\approx 390\Omega$ on the other
-side, which is there (see the blue trace, cursor 1).
+side, which is there (see the blue trace, cursor 2).
 
 ## g
 
@@ -120,7 +122,7 @@ transformers with half the windings relative to the primary. Therefore, our
 "negative" side below the ground reference, which is also half the windings.
 ***The voltage difference between the primary coil and the tapped secondary must
 be equal***. So, our negative side is pulled down, creating a differential, 180
-degree out of phase waveform, also at half peak relative to the primary.
+degree out of phase waveform, also at half peak relative to the primary. 
 
 ![Transient plots of the primary coil, and each side of the center-tapped
 secondary coil](media/centertap/phasing.png)
