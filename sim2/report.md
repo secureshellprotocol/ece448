@@ -79,7 +79,7 @@ which is close to our calculated magnitude (on cursor 1).
 As a sanity check...
 
 I see the correct load impedance on the secondary side. Treating `LS` as a
-source, I expect to see `mag(100+j120pi)` $\approx 390\Omega$ on the other
+source, I expect to see $\sqrt{(100)^2+(120pi)^2} \approx 390\Omega$ on the other
 side, which is there (see the blue trace, cursor 2).
 
 ## g
@@ -129,6 +129,28 @@ secondary coil](media/centertap/phasing.png)
 
 From this plot, it can be said:
 
+On the primary side, the current is almost 180 degrees out of phase with the
+voltage, since the primary side is transferring its energy to the secondary
+coils. In this case, when considering the voltage lead and lag of the
+primary coil, we should flip the polarity of the current, or shift it
+backwards by 180 degrees. 
+
+This makes intuitive sense from the power triangle. If we measure the current
+in the opposing direction, we see a 180 degree phase shift back. We're allowed
+to do this since we are thinking in terms of providing current, which our
+primary coil is doing for our secondary coils. 
+
+We can 
+measure the change in $\theta_{i \rightarrow v}$. Looking at the AC plot should let us
+calculate this. We'll use a similar method for the later transformers, too.
+
+I derived a lot of my logic from this [stackoverflow post](https://electronics.stackexchange.com/q/63795)
+
+![AC plots of the primary coil, and each side of the center-tapped
+secondary coil](media/centertap/phasing_ac.png)
+
+From the transient results:
+
 The **current** waveform on the primary side is *out of phase* with the
     secondary side's current. The coils on the secondary side, expectedly, have
     their current waveforms in phase, because they're wired in series. This is
@@ -141,6 +163,16 @@ The **current** waveform on the primary side is *out of phase* with the
 The **voltage** waveform on the secondary's positive side is *in phase* with the primary,
     and the **voltage** waveform on the secondary's negative side is *180
     degrees out of phase* with the primary. Expected from the center tap!
+
+And, from the AC results:
+
+We can say (given that the primary coil is a source for the secondary coils)
+that, since the primary current is *less than* 180 degrees, when we do our sign
+conversion, we can see that the voltage waveform slightly leads the current on
+the primary side.
+
+There is no lead or lag on the secondary side, its dominated by resistive loads,
+phasing differences are only caused by voltage sign convention differences.
 
 ![The total voltage drop across the secondary side is equal to the primary
 side](media/centertap/isolation.png)
@@ -171,11 +203,12 @@ result](media/balun_diff/phasing_transient.png)
 ![AC Voltage, Current response for differential inputs,
 result](media/balun_diff/phasing_ac.png)
 
-We can see (especially in the AC results) that there is a slight voltage lag in
-the `pos` input, and likewise a slight voltage lead in the `neg` input.
+We can see (especially in the AC results) that there is a slight voltage lead in
+the primary windings, for similar reasons as  described in the center tap.
 
 The current on the sum-side is 180-degrees out of phase with the current on the
-double-ended side. This is expected, considering Lenz's law and Faraday's law.
+double-ended side. This is expected, considering Lenz's law and Faraday's law,
+and our convention considerations.
 
 The summed $240$ V result is in-phase with the `pos` differential input. This
 intuitively makes sense: the induced current is out of phase with the current on
@@ -211,10 +244,10 @@ and on the `lower` net we see $60$ V. Therefore, the total drop across the coil
 should be $30$ V, which can be seen on the secondary side. 
 
 We see (especially on the AC plot) that both common inputs experience a voltage
-lag.
+lead.
 
 We see a similar trend with the voltage and current waveforms: the current on
-the primary side is out of phase with the voltage on the primary side, and the
+the primary side is out of phase with the current on the secondary side, and the
 current on the secondary side is in phase with the voltage on the secondary
 side. 
 
@@ -233,15 +266,17 @@ secondary side of the coil.
 ![Transient Voltage, Current across Primary and
 Loads](media/multiwind/phasing.png)
 
-Note that the voltage on the primary coil is 180 degrees out of phase with the
-current through the coil, however, the load / secondary coil's voltage waveform
-is in phase with its current. This is somewhat expected; considering Lenz's Law
-and Faraday's law, we should see this out-of-phase current between coils due to
-the emf opposing the change in flux. And, logically, the loads at the secondary
-coil (`R1` and `R2`) are each sinking power from a secondary coil. And, our
-primary coil is acting as a source for those secondary coils, so naturally the
-power conserved: the secondary coils source the primary coil for their power
-demand, so the primary coil is a negative impedance.
+![AC Voltage, Current across Primary and
+Loads](media/multiwind/phasing_ac.png)
+
+There is a slight voltage lead on the primary coil, and there is no lead or lag
+on the secondary coils.
+
+The current convention also holds, similarly since the primary coil is a
+provider for the secondary coils, and Lenz + Faraday enforces the current to be
+180 degrees out of phase from primary to secondary. Interestingly, we have
+multiple secondaries; we can see that the current waveforms across 
+`L2` and `L3` are in-phase.
 
 We observe the isolating effects. The magnitude of the voltage waveform between
 the primary coil and either load is the same, however, the primary current is
@@ -257,7 +292,7 @@ transferred without loss to our loads.
 
 This entire homework took me about 12-15 hours of work over 3 days, and I
 rewrote a couple of sections a couple of times. That could explain if some
-section doesn't make complete sense. 
+section doesn't make complete sense, or if i repeated myself at points. 
 
 The first question was ok, but the wording was a little vague at some points.
 For part C, I could not tell if i was supposed to have both sides match in
