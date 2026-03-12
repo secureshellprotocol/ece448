@@ -1,0 +1,12 @@
+* C:\users\james\Documents\Cooper\ece448\sim3\halfwave_nosmooth.asc
+V1 input 0 SINE(0 170 60 0) AC 170 0 Rser=.1
+L1 0 input 10
+L2 0 N001 10
+D1 N001 output 1N914
+R1 output 0 1k
+.model D D
+.lib C:\users\james\AppData\Local\LTspice\lib\cmp\standard.dio
+K L1 L2 1
+.tran 0 .1667 0 .001
+.backanno
+.end
