@@ -50,4 +50,10 @@ $D$.
 
 # q2 - async buck boost converter
 
+Note that the attached video was designing an *inverting* buck boost, but I'm
+not interested in the inversion, just seeing the buck boost work in a typical
+way. So, I inverted the diode.
+
 ## a
+
+
