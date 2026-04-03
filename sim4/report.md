@@ -38,12 +38,15 @@ be centered around $0.73 A$.
 
 ![Close-up on our waveforms, with a raised load](media/async_buck/transients_waves_20ohm.png)
 
-Theres a greater power load which is demanded by the larger resistor. Our duty
-cycle is partly determining our power efficiency, and with the larger
-resistance, we start demanding less current. So, to maintain the ratio, our
-output DC rises, which we observe here. This idea is sort of reflected in the
-switch utilization chart, where we can expect some $\frac{P_o}{P_T}$ given the
-$D$.
+This is because the higher output resistance demands less current from the
+buck converter, so the output voltage levels raise. This is seen on the switch
+utilization chart, where our duty cycle primarily impacts our efficiency.
+Usually, in applications where we want to keep the output voltage at a steady
+level, we implement some kind of feedback to adjust $D$ as our load demands
+change.
+
+![Switch utilization chart, demonstrating the duty-cycle's relationship with
+power delivery for a converter](media/async_buck/switchutil.png){width=40%}
 
 # q2 - async buck boost converter
 
@@ -90,8 +93,6 @@ At lower voltages, this is impacted by the voltage drop across the diode `D1`,
 however, we can demonstrate this behavior by boosting our input DC voltage to be
 significantly larger than this loss; we set $V_{in} = 30V$ and observe a
 $V_{out} = 20V$.
-
-According to the [datasheet]()
 
 $\frac{D}{1-D} = \frac{.4}{1-.4} = \frac{2}{3}$, so $30V \cdot \frac{2}{3} = 
 20V$
