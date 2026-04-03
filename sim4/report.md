@@ -80,8 +80,26 @@ voltage source)](media/async_buckboost/reference_shenanigans.png)
 
 ## b
 
-It's bucking, since our duty cycle, $D$ is $\lt 50%$. We know this because given
-our constant $3V$ input, we observe $1.8V$ output.
+It's bucking, since our duty cycle, $D$ is $\lt 50%$. 
 
-$\frac{D}{1-D} = \frac{.4}{1-.4} = \frac{2}{3}$, so $3V \cdot \frac{2}{3} = 2V$
+At lower voltages, this is impacted by the voltage drop across the diode `D1`,
+however, we can demonstrate this behavior by boosting our input DC voltage to be
+significantly larger than this loss; we set $V_{in} = 30V$ and observe a
+$V_{out} = 20V$.
 
+According to the [datasheet]()
+
+$\frac{D}{1-D} = \frac{.4}{1-.4} = \frac{2}{3}$, so $30V \cdot \frac{2}{3} = 
+20V$
+
+![Bucking behavior, where $D = 0.4$. Note that the "input" is referenced between
+the input to the buck circuit, and our output node, so our real input node gets
+pushed around as the circuit reaches steady state. That behavior is observable
+in the previous part](media/async_buckboost/bucking.png)
+
+In the same regard, pushing $D \gt 0.5$ gets us our boosting behavior. Adjusting
+the duty cycle $D = 0.6$:
+
+$\frac{.6}{1-.6} = \frac{3}{2}$, $30V \cdot \frac{3}{2} = 45V$
+
+![Boosting behavior](media/async_buckboost/boosting.png)
