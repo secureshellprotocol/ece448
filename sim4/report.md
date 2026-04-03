@@ -57,10 +57,14 @@ and $t_{off} = T - t_{on} = 4.8 \mu s$.
 We assume our switching device has a slew rate of $100ns$, a typical rise / fall
 figure for the LM555 timer.
 
-![Buck-Boost Converter working to steady state at our specified duty cycle, $D$](
+![Buck-Boost Converter working to steady state at our specified duty cycle, $D$. 
+In order: Our switching from the modulator, our bridge voltage, our inductor
+current, and our output (pink) versus the input (gold). The sloping weirdness
+is due to reference weirdness, where all magnitudes are measured with reference
+to the output's negative pole](
 media/async_buckboost/transients_full.png)
 
-![Close-up on our waveforms](
+![Close-up on our waveforms, same order as previous figure.](
 media/async_buckboost/transients_waves.png)
 
 Note the reference inversion! The bottom node, our positive output terminal, is
@@ -80,7 +84,7 @@ voltage source)](media/async_buckboost/reference_shenanigans.png)
 
 ## b
 
-It's bucking, since our duty cycle, $D$ is $\lt 50%$. 
+It's bucking, since our duty cycle, $D$ is $< 50\%$. 
 
 At lower voltages, this is impacted by the voltage drop across the diode `D1`,
 however, we can demonstrate this behavior by boosting our input DC voltage to be
@@ -97,9 +101,35 @@ the input to the buck circuit, and our output node, so our real input node gets
 pushed around as the circuit reaches steady state. That behavior is observable
 in the previous part](media/async_buckboost/bucking.png)
 
-In the same regard, pushing $D \gt 0.5$ gets us our boosting behavior. Adjusting
+In the same regard, pushing $D > 0.5$ gets us our boosting behavior. Adjusting
 the duty cycle $D = 0.6$:
 
 $\frac{.6}{1-.6} = \frac{3}{2}$, $30V \cdot \frac{3}{2} = 45V$
 
-![Boosting behavior](media/async_buckboost/boosting.png)
+![Boosting behavior, red is input (30V), output is green (45V)](media/async_buckboost/boosting.png)
+
+# q3 -- Variable buck boost
+
+Considering our $\frac{V_{out}}{V_{in}}$ equation in terms of $D$, we can
+rearrange to get an expression of $D$ considering our current input and target
+output voltage.
+
+\begin{align*}
+&\frac{V_{out}}{V_{in}} = \frac{D}{1-D} \\
+\Longrightarrow &\frac{V_{in}}{V_{out}} = \frac{1-D}{D}\\
+&= \frac{1}{D} - 1 \\
+\Longrightarrow &\frac{1}{D} = \frac{V_{in}}{V_{out}} + 1 \\
+\Longrightarrow &D = \frac{1}{\frac{V_{in}}{V_{out}} + 1} \\
+\end{align*}
+
+This can be implemented in LTSpice as just a couple of parameters.
+
+![Testing 10V(pink)->15V(green) Boosting; works!](media/async_buckboost/variable_10V.png)
+
+![Testing 20V(pink)->15V(green) Bucking; works!](media/async_buckboost/variable_20V.png)
+
+![Swept random inputs bound between 10V to 20V, works! Each pink line is an input
+voltage, and we can see that our output is fairly noisy at the start, but all
+green lines converge to 15V after 15ms.](
+media/async_buckboost/variable_sweeps.png)
+
