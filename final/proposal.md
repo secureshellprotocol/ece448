@@ -20,11 +20,15 @@ order to produce a lot of eddies in a neighboring piece of metal.
 
 ## Technical details
 
-
 IGBTs combine MOSFETs and BJTs, and are capable of switching at 10s-100s of KHz
 while supporting high-current workloads, which make it suitable for this 
 
 # Proposed Solution
+
+Stages:
+* Switching stage w/ LLC tank (ZVS Circuit)
+* Rectification stage
+* Coil construction
 
 [Tutorial for a bolt heater](https://inductionheatertutorial.com/)
 
@@ -52,5 +56,8 @@ Go to figure 2: Cm is PF correction, Lr and Cr. This is a SEPR circuit
 
 [IGBT selection](https://toshiba.semicon-storage.com/us/semiconductor/product/igbts-iegts/igbts/detail.GT20N135SRA.html)
 
+[ZVS Whitepaper](https://www.ti.com/lit/ml/slup089/slup089.pdf)
+
 Spec goals TBD -- How do we figure this out?
 
+Calculating heat dissipation on the cookware, and checking $P_{out}/P_{tot}$
