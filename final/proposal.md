@@ -26,15 +26,16 @@ while supporting high-current workloads, which make it suitable for this
 # Proposed Solution
 
 Stages:
-* Switching stage w/ LLC tank (ZVS Circuit)
+* Switching stage w/ LLC tank (ZVS Circuit or multivibrator)
 * Rectification stage
-* Coil construction
+
+[IGBT SELECTION: fgh40n60smd](https://www.onsemi.com/pdf/datasheet/fgh40n60smd-d.pdf)
 
 [Tutorial for a bolt heater](https://inductionheatertutorial.com/)
 
 [Induction Coil Design considerations](https://www.mdpi.com/2076-3417/14/17/7996)
 
-BOM TBD
+
 
 [Induction heater
 whitepaper](https://toshiba.semicon-storage.com/content/dam/toshiba-ss-v3/master/en/semiconductor/design-development/innovationcentre/whitepapers/TCM0542_GT20N135SRA.pdf0)

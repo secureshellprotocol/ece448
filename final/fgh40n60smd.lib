@@ -1,0 +1,76 @@
+*$
+****************************** IGBT Electrical Parameters ***************************
+** Product: FGH40N60SMD
+** 600V, 40A A Field Stop IGBT
+** Model Format: SPICE3
+**-----------------------------------------------------------------------------------
+.SUBCKT FGH40N60SMD C G E
+LE E 3 1.658e-9
+LG G 2 1.183e-9
+LC C 1 1.658e-9
+Remit E 3 16.5
+Rgate G 2 11.83
+Rcoll C 1 16.58
+M1 9 6 8 8 MSUB L=100u W=100u
+.model MSUB NMOS LEVEL=1
++ VTO=4.5            KP=3.68           LAMBDA=0.0105 
++ THETA=0.064 
+RD 7 9 1e-06
+RS 4 8 0.005
+CGC 6 1 1p 
+CGE 6 4 1.83n
+Q1 4 7 1 QSUB OFF
+.model QSUB PNP
++ IS=6.066e-17      BF=1              NF=1.0        VAF=1500
++ IKF=850           ISE=1.042e-13     NE=1.5        BR=0.85
++ NR=1.0            VAR=200           IKR=1000      ISC=1.0e-11
++ NC=1              RB=0.2008         IRB=0.1275    RBM=1e-05
++ RE=1e-08          RC=0.00038        XTB=3.75      XTI=3
++ EG=0.98           CJC=1.006e-9      VJC=0.71      MJC=0.546
++ CJE=2.694e-8      VJE=0.56          MJE=0.9       TF=4.04e-08
+RDS 7 4 1e8
+RER 4 3 0.000205  TC=3.609e-1
+RG 6 2 0.5
+RL 10 11 1
+D2 12 11 DCAP
+.model DCAP D 
++ IS=1e-32          N=50              BV=660        IBV=1e-3
++ CJO=1.51e-9       VJ=0.52           M=0.84        FC=0.5
+D3 0 11 DL
+.model DL D
++ IS=1e-10          N=1.0
+VFI2 12 0 0
+FI2 6 7 VFI2 -1
+EV 10 0 7 6 1
+CAP 10 13 5.69e-9
+RCAP 10 14 1
+D4 0 14 DL
+VFI1 13 14 0
+FI1 6 7 VFI1 -1
+DFRD 4 3 FRD
+.MODEL FRD D 
++ IS=3.90e-12       N=1.0             RS=0.0411     EG=1.16 
++ N=1.5             XTI=20            TRS1=1.05e-5  TRS2=1.05e-7
++ CJO=1e-10         TT=3.67e-08       BV=660        IBV=1.0e-3
+.ENDS
+*$
+***************************** IGBT Thermal Parameters ****************************
+.SUBCKT FGH40N60SMD_Thermal TH TL
+CTHERM1 TH 6 3.00e-5
+CTHERM2 6 5  8.80e-4
+CTHERM3 5 4  2.80e-3
+CTHERM4 4 3  9.00e-3
+CTHERM5 3 2  2.20e-2
+CTHERM6 2 TL 8.40e-2
+RTHERM1 TH 6 9.00e-4
+RTHERM2 6 5  8.00e-3
+RTHERM3 5 4  3.50e-2
+RTHERM4 4 3  6.64e-2
+RTHERM5 3 2  8.88e-2
+RTHERM6 2 TL 2.31e-1
+.ENDS FGH40N60SMD_Thermal
+**---------------------------------------------------------------------------------
+** Creation: Apr.-03-2017   Rev.: 1.0
+** ON Semiconductor
+*$
+
