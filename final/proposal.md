@@ -32,26 +32,18 @@ essentially alters the induced temperature in our target cookware.
 ![Inspiration Circuit](https://www.homemade-circuits.com/wp-content/uploads/2022/04/solar-induction-heater.jpg)
 
 * DC input, or AC input with passive rectification stage
-    * we have a 120->24VAC transformer in the lab, rated for 8A (192VA)
+    * We have AC power supplies in the lab we can use
     * This could be interesting, cause if we put a Varactor inline with this, we
         could possibly shift the PF before the rectification stage, which could
         shift the "downstream" LC value of our resonant tank. We think this
         could work from Lecture 8 considering the sinusoidal analysis from the
         LC converter slides. 
-    * We should have an AC Power Supply and a Varactor on hand. If we dont, we
+    * We should have a Varactor on hand. If we dont, we
         are slightly cooked on temperature control (besides varying current).
         James will confirm this by Tuesday 4/28.
-    * Rectification cap []
 * Half-bridge chopper or inverter
-    * Driver IC [onsemi FDMF3170, built for dcdc converters and high power applications](https://www.digikey.com/en/products/detail/onsemi/FDMF3170/7556810)
-        * Could just do a 555 timer
-    * IGBT []()
 * Series LC tank
-    * Capacitor 
-    * We may just have to hope the Varactor and Coil can do the rest of the
-        work, lowkey.
 * Work Coil
-    * [coil](https://www.diypartsandmore.com/Product/dpam-true-induction-parts/true-induction-cooktop-parts---burner-coil-for-ti-1b/36021?1=1)
     * James wanted to model and build a coil, since its kind of impossible to
         spec out parts otherwise. We would need to know the coil's inductance at
         open air, and at load (e.g. prescense of cast-iron pan)
