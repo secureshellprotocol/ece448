@@ -1,4 +1,13 @@
+---
+header-includes: |
+  \usepackage{float}
+  \makeatletter
+  \def\fps@figure{H}
+  \makeatother
+---
+
 # Induction Hot Plate Proposal
+
 Final Project for ECE448 - Power Electronics.
 
 Fred Kim, James Ryan. Prof. Cavallaro. Spring 2026.
@@ -31,7 +40,7 @@ essentially alters the induced temperature in our target cookware.
 
 ![Our Block Diagram](./diagram.png)
 
-![Circuit Diagram Concept (Toshiba Semiconductor)](./tentative_circuit.png)
+![Circuit Diagram Concept[^1]](./tentative_circuit.png)
 
 * AC input with passive rectification stage
     * We have AC power supplies in the lab we can use
@@ -52,24 +61,23 @@ essentially alters the induced temperature in our target cookware.
 
 # References
 
-[^1]: [Toshiba Semiconductor, “Delivering Highly Efficient Induction Heating Cooking Appliances Using IGBTs.” Available: https://toshiba.semicon-storage.com/content/dam/toshiba-ss-v3/master/en/semiconductor/design-development/innovationcentre/whitepapers/TCM0542_GT20N135SRA.pdf](https://toshiba.semicon-storage.com/content/dam/toshiba-ss-v3/master/en/semiconductor/design-development/innovationcentre/whitepapers/TCM0542_GT20N135SRA.pdf)
+[^1]: Toshiba Semiconductor.
+
+1. [Toshiba Semiconductor, “Delivering Highly Efficient Induction Heating Cooking Appliances Using IGBTs.” Available: https://toshiba.semicon-storage.com/content/dam/toshiba-ss-v3/master/en/semiconductor/design-development/innovationcentre/whitepapers/TCM0542_GT20N135SRA.pdf](https://toshiba.semicon-storage.com/content/dam/toshiba-ss-v3/master/en/semiconductor/design-development/innovationcentre/whitepapers/TCM0542_GT20N135SRA.pdf)
+
 
 # Additional Reading
 
 These sources were not explicitly cited in the creation of the background or
 introduction. We primarily modeled our circuit from the Toshiba whitepaper.
 
-[Tutorial for a bolt heater](https://inductionheatertutorial.com/)
-
-[Induction Coil Design considerations](https://www.mdpi.com/2076-3417/14/17/7996)
-
-[Litz wire](https://ieeexplore.ieee.org/document/8340533)
-
-[Paper on power loss reduction in a SEPR circuit](https://www.temjournal.com/documents/vol3no3/Study%20of%20Power%20Loss%20Reduction%20in%20SEPR%20Converters%20for%20Induction%20Heating%20through%20Implementation%20of%20SiC%20Based%20Semiconductor%20Switches.pdf)
+* [Tutorial for a bolt heater](https://inductionheatertutorial.com/)
+* [Induction Coil Design considerations](https://www.mdpi.com/2076-3417/14/17/7996)
+* [Litz wire](https://ieeexplore.ieee.org/document/8340533)
+* [Paper on power loss reduction in a SEPR circuit](https://www.temjournal.com/documents/vol3no3/Study%20of%20Power%20Loss%20Reduction%20in%20SEPR%20Converters%20for%20Induction%20Heating%20through%20Implementation%20of%20SiC%20Based%20Semiconductor%20Switches.pdf)
 
 Go to figure 2: Cm is PF correction, Lr and Cr. This is a SEPR circuit
 (single ended parallel resonance converter)
 
-[Coil HOW-TO](https://www.instructables.com/DIY-Induction-Heater-Circuit-With-Flat-Spiral-Coil/)
-
-[ZVS Whitepaper](https://www.ti.com/lit/ml/slup089/slup089.pdf)
+* [Coil HOW-TO](https://www.instructables.com/DIY-Induction-Heater-Circuit-With-Flat-Spiral-Coil/)
+* [ZVS Whitepaper](https://www.ti.com/lit/ml/slup089/slup089.pdf)
