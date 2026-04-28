@@ -3,8 +3,8 @@ Work Coil,Induction element,16.000,1,16.000,https://www.diypartsandmore.com/Prod
 FGH40N60SMD IGBT,H-Bridge drivers plus spare,5.650,5,28.250,https://www.digikey.com/en/products/detail/onsemi/FGH40N60SMD/2602587,
 B43544B7476M000 Capacitor,Rectifier smoothing cap,6.120,2,12.240,https://www.digikey.com/en/products/detail/tdk/B43544B7476M000/6160753,
 MBRF20150CTL Schottky,Rectifier diodes,1.400,4,5.600,https://www.digikey.com/en/products/detail/smc-diode-solutions/MBRF20150CTL/6022213,
-,27uH High current Inductor,0.000,0,0.000,https://www.digikey.com/en/products/detail/bourns-inc/2306-H-RC/775373,in the lab
-MIDWEC Type 7F Cao,5mF 200VDC cap,0.000,0,0.000,"Theres no information I could find online for these, but we have a bucket FULL of them",in the lab
+2306-H-RC Inductor,27uH High current Inductor,0.000,0,0.000,https://www.digikey.com/en/products/detail/bourns-inc/2306-H-RC/775373,in the lab
+MIDWEC Type 7F Cap,5mF 200VDC cap,0.000,0,0.000,"Theres no information I could find online for these, but we have a bucket FULL of them",in the lab
 ,,,,0.000,,
 ,,,,0.000,,
 ,,,,0.000,,
