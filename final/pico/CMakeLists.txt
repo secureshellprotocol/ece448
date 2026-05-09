@@ -24,3 +24,10 @@ target_link_libraries(${TARGET_NAME}
 
 pico_enable_stdio_uart(${TARGET_NAME} 1)
 pico_add_extra_outputs(${TARGET_NAME})
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/.gdbinit.in
+    ${CMAKE_CURRENT_BINARY_DIR}/.gdbinit
+    @ONLY
+)
+
