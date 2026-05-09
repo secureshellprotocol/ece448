@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
 
 set(PICO_BOARD pico2)
@@ -20,6 +22,7 @@ add_executable(${TARGET_NAME}
 target_link_libraries(${TARGET_NAME}
     pico_stdlib
     hardware_gpio
+    hardware_pwm
 )
 
 pico_enable_stdio_uart(${TARGET_NAME} 1)
