@@ -3,5 +3,11 @@
 
 int main(void)
 {
-    printf("This is my power project\n");
+    stdio_init_all();
+
+    for(;;)
+    {
+        printf("This is my power project\n");
+        sleep_ms(1000);
+    }
 }
