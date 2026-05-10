@@ -6,9 +6,12 @@
 
 #define PWM_PIN_H 2
 #define PWM_PIN_L 3
-#define PWM_WRAP 11773 // this was experimentally determined to be 6KHz
+// note that a PWM_WRAP of 12500 results in a F_SW of 6k
+#define WRAP_RATIO (12500 * 6000)
+#define F_SW 9057
+#define PWM_WRAP (WRAP_RATIO / F_SW)
 #define DUTY_CYCLE 0.5
-#define DEADTIME_PERCENT 0.1 // 10%
+#define DEADTIME_PERCENT 0.05 // 10%
 
 int main(void)
 {
