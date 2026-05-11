@@ -4,11 +4,18 @@
 #include "pico/time.h"
 #include "hardware/pwm.h"
 
+
+// the inductance of coil is 62.4230 uH
+#define F_SW_9K     9008    // for c = 5uF
+#define F_SW_20_K   20144   // for c = 1uF
+
 #define PWM_PIN_H 2
 #define PWM_PIN_L 3
 // note that a PWM_WRAP of 12500 results in a F_SW of 6k
 #define WRAP_RATIO (12500 * 6000)
-#define F_SW 9057
+
+
+#define F_SW F_SW_20_K
 #define PWM_WRAP (WRAP_RATIO / F_SW)
 #define DUTY_CYCLE 0.5
 #define DEADTIME_PERCENT 0.05 // 10%
